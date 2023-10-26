@@ -33,7 +33,6 @@ int main() {
 	if (duplicate == true) {
 		cout << "The data has duplicates." << endl;
 	}
-
 }
 
 bool isSortedIncreasing(int values[], int size) {
