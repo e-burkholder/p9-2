@@ -4,11 +4,11 @@ using namespace std;
 bool isSortedIncreasing(int values[], int size);
 bool isSortedDecreasing(int values[], int size);
 bool hasAdjacentDuplicates(int values[], int size);
-//bool hasDuplicates(int values[], int size);
+bool hasDuplicates(int values[], int size);
 
 int main() {
 	int integers[6];
-	bool sortedInc, sortedDec, adjacent;
+	bool sortedInc, sortedDec, adjacent, duplicate;
 	
 	for (int i = 0; i < 6; i++) {
 		cout << "Enter integer #" << i+1 << ": ";
@@ -17,6 +17,8 @@ int main() {
 	sortedInc = isSortedIncreasing(integers, 6);
 	sortedDec = isSortedDecreasing(integers, 6);
 	adjacent = hasAdjacentDuplicates(integers, 6);
+	duplicate = hasDuplicates(integers, 6);
+
 
 	
 	if (sortedInc == true) {
@@ -28,6 +30,10 @@ int main() {
 	if (adjacent == true) {
 		cout << "The data has adjacent duplicates." << endl;
 	}
+	if (duplicate == true) {
+		cout << "The data has duplicates." << endl;
+	}
+
 }
 
 bool isSortedIncreasing(int values[], int size) {
@@ -62,4 +68,20 @@ bool hasAdjacentDuplicates(int values[], int size) {
 		}
 	}
 	
+}
+bool hasDuplicates(int values[], int size) {
+	bool result=false;
+	for (int i = 0; i < 6; i++) {
+		for (int b=0; b < 6; b++) {
+			if (values[i] == values[b] && values[b]) {
+				if (i == b) {
+					continue;
+				}
+				return true;
+				break;
+			}
+		}
+
+	}
+	return result;
 }
